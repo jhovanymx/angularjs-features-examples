@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="MainApp">
+    <head>
+        <title>AngularJS - Show and Hide</title>
+        <meta charset="utf-8" />
+        <style>
+            .animated{
+                opacity: 1;
+                max-height auto;
+                overflow: hidden;
+                transition: all 2s;
+            }
+            .animated.ng-hide{
+                display: block !important;
+                opacity: 0;
+                max-height; 0px !important;
+            }
+        </style>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+        <script src="js/show-hide-controller.js"></script>
+    </head>
+    <body ng-controller="MainController">
+        <div ng-show="loading">Loading...</div>
+        <div ng-show="!loading && posts.length <= 0">Empty records</div>
+        <ul ng-show="posts.length > 0" class="animated">
+            <li ng-repeat="post in posts">
+                <h2>{{post.title}}</h2>
+                <p>{{post.body}}</p>
+            </li>
+        </ul>
+    </body>
+</html>

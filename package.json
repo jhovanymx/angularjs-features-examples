@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "node app"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3"
+  }
+}

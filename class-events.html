@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app>
+    <head>
+        <title>AngularJS - Class Events</title>
+        <meta charset="utf-8" />
+        <style>
+            .hover{
+                background-color: rgb(200,50,50);
+            }
+            .no-hover{
+                background-color: rgb(50,200,50);
+            }
+        </style>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    </head>
+    <body>
+        <button ng-click="flag = !flag" ng-class="{'hover': flag, 'no-hover': !flag}">
+            Hover me
+        </button>
+        <span ng-show="flag">&lt;- Click me</span>
+    </body>
+</html>

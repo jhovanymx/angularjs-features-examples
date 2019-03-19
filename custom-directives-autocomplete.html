@@ -1,0 +1,66 @@
+<!doctype html>
+<html ng-app="MainApp">
+    <head>
+        <title>AngularJS - Custom Directives Autocomplete</title>
+        <meta charset="utf-8" />
+        <style>
+            .circular{
+                border-radius: 50%;
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                background-position: center;
+                background-size: cover;
+            }
+            
+            .no-list{
+                padding: 0;
+            }
+            
+            .no-list li{
+                list-style-type: none;
+            }
+            
+            .no-list h1{
+              margin-top: 10px;
+              margin-bottom: 30px;
+            }
+            
+            body, html{
+                text-align: center;
+                background-color: #eee;
+                margin: 0px;
+            }
+            
+            input {
+              width: 100%;
+              margin-bottom: 15px;
+              padding: 5px;
+              border: none;
+            }
+
+            #limpiar {
+              cursor: pointer;
+            }
+
+            .ui-draggable, .ui-droppable {
+              background-position: top;
+            }
+        </style>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+        <script src="//code.jquery.com/jquery-latest.min.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script src="js/custom-directives-autocomplete-controller.js"></script>
+    </head>
+    <body ng-controller="MainController">
+        <input type="text" my-autocomplete="repos" placeholder="Find repository">
+        <ul class="no-list" ng-cloak>
+            <li ng-repeat="repo in posts" ng-hide="main_repo && main_repo != repo.name">
+                <div class="circular" back-img="{{repo.owner.avatar_url}}"></div>
+                <h1 class="inline-block">{{repo.full_name}}</h1>
+            </li>
+        </ul>
+        <a id="limpiar" ng-show="main_repo" ng-click="clean()">Limpiar</a>
+    </body>
+</html>
